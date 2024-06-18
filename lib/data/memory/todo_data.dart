@@ -111,6 +111,12 @@ class TodoData extends GetxController {
 
     todoList.refresh();
   }
+
+  findTodo(String str) {
+    final responseResult = todoRepository.getFind(str);
+    debugPrint(responseResult.toString());
+  }
+
 }
 
 mixin class TodoDataProvider {

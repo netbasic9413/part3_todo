@@ -56,4 +56,19 @@ class LocalDB implements TodoRepository<LocalDBError> {
     });
     return SimpleResult.success();
   }
+
+
+  Future<SimpleResult<List<Todo>, LocalDBError>> getFind(String str) async {
+    try {
+      debugPrint('get response success');
+      final documents = await _isar.todoDbModels.filter().titleContains(str).findAll();
+      return SimpleResult.success(documents.map((e) => e.createTodo()).toList());
+    } catch (e) {
+      debugPrint('get response fail');
+      return SimpleResult.failure(
+          LocalDBError(LocalDBErrorType.unknown, '에러가 발생했습니다. catch를 통해 세분화된 에러를 넘겨주세요.'));
+    }
+  }
+  
+  
 }

@@ -19,6 +19,7 @@ class TodoStatusWidget extends StatelessWidget with TodoDataProvider {
     return Tap(
         onTap: () {
           todoData.changeTodoStatus(todo);
+          todoData.findTodo('ab');
         },
         child: SizedBox(
           height: 50,

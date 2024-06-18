@@ -32,7 +32,7 @@ class SearchBarWidget extends StatelessWidget implements PreferredSizeWidget {
               child: TextFieldWithDelete(
                 textInputAction: TextInputAction.search,
                 controller: controller,
-                texthint: "'게임'을 검색해보세요",
+                texthint: "'할일'을 검색해보세요",
                 onEditingComplete: () {
                   //print(controller.text);
                   //검색 버튼 눌렀을때 처리 //search
@@ -42,6 +42,8 @@ class SearchBarWidget extends StatelessWidget implements PreferredSizeWidget {
             Tap(
                 onTap: () {
                   //search
+                  debugPrint(controller.text);
+                  //findTodo(controller.text);
                 },
                 child: const Icon(Icons.search).pOnly(right: 15))
           ],
